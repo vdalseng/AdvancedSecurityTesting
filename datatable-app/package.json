@@ -16,8 +16,8 @@
     "@elvia/elvis-header": "^1.14.0",
     "@elvia/elvis-icons": "^1.0.2",
     "autoprefixer": "^10.4.20",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0"
   },
   "devDependencies": {
