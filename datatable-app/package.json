@@ -11,7 +11,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@elvia/elvis": "^21.0.0",
+    "@elvia/elvis": "^21.1.0",
     "@elvia/elvis-assets-icons": "^3.12.0",
     "@elvia/elvis-header": "^1.14.0",
     "@elvia/elvis-icons": "^1.0.2",
