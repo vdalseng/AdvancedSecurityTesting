@@ -1,4 +1,5 @@
 {
     "codeQL.createQuery.qlPackLocation": "c:\\Elvia\\Github\\Core\\Air\\DependabotSetup",
-    "codeQL.githubDatabase.download": "never"
+    "codeQL.githubDatabase.download": "never",
+    "dotnet.defaultSolution": "DatastreamApi.sln"
 }
