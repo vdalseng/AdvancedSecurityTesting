@@ -1,16 +1,29 @@
-using DatastreamApi.Services;
-using DatastreamApi.Interfaces;
+using Microsoft.OpenApi.Models;
+using PizzaStore.DB;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddTransient<IWelcomeService, WelcomeService>();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Datastream API", Description = "Testing minimal API", Version = "v1" });
+});
 
 var app = builder.Build();
 
-app.MapGet("/", async (IWelcomeService welcomeService1, IWelcomeService welcomeService2) => 
+if (app.Environment.IsDevelopment())
 {
-    var message1 = await Task.Run(() => welcomeService1.GetWelcomeMessage());
-    var message2 = await Task.Run(() => welcomeService2.GetWelcomeMessage());
-    return $"Message1: {message1}\nMessage2: {message2}";
-});
-
+   app.UseSwagger();
+   app.UseSwaggerUI(c =>
+   {
+      c.SwaggerEndpoint("/swagger/v1/swagger.json", "Datastream API V1");
+   });
+}
+    
+app.MapGet("/pizzas/{id}", (int id) => PizzaDB.GetPizza(id));
+app.MapGet("/pizzas", () => PizzaDB.GetPizzas());
+app.MapPost("/pizzas", (Pizza pizza) => PizzaDB.CreatePizza(pizza));
+app.MapPut("/pizzas", (Pizza pizza) => PizzaDB.UpdatePizza(pizza));
+app.MapDelete("/pizzas/{id}", (int id) => PizzaDB.RemovePizza(id));
+    
 app.Run();
