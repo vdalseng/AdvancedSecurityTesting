@@ -8,10 +8,11 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "scan": "trivy fs --scanners vuln,misconfig,secret,license --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL --ignore-unfixed=false --format table ."
   },
   "dependencies": {
-    "@elvia/elvis": "^21.1.0",
+    "@elvia/elvis": "^20.0.0",
     "@elvia/elvis-assets-icons": "^3.13.0",
     "@elvia/elvis-header": "^1.14.0",
     "@elvia/elvis-icons": "^1.0.2",
