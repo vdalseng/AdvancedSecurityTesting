@@ -8,7 +8,7 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "datatable-app/" # Ensure this path is correct
     schedule:
-      interval: "daily" # Frequency of update checks
+      interval: "monthly" # Frequency of update checks
 
     commit-message:
       prefix: "fix" # Will result in commits like "fix: Update dependencies"
